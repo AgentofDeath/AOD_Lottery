@@ -700,33 +700,6 @@ Notify = function(text, timer)
     --ESX.ShowNotification(text)
 end
 
-function dump(o)
-    if type(o) == "table" then
-        local s = "{ "
-        for k, v in pairs(o) do
-            if type(k) ~= "number" then
-                k = '"' .. k .. '"'
-            end
-            s = s .. "[" .. k .. "] = " .. dump(v) .. ","
-        end
-        return s .. "} "
-    else
-        return tostring(o)
-    end
-end
-
-RegisterCommand(
-    "tabletest",
-    function(source, args, raw)
-        print(dump(pickone))
-        print(dump(picktwo))
-        print(dump(pickthree))
-        print(dump(pickfour))
-        print(dump(pickfive))
-    end,
-    false
-)
-
 RegisterNetEvent("lottery:passinfo")
 AddEventHandler(
     "lottery:passinfo",
