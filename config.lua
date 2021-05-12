@@ -1,4 +1,5 @@
 Config = {}
+--add locations here
 
 Config.Locations = {
 vector3(28.26, -1342.56, 28.5),
