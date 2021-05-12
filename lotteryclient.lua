@@ -760,11 +760,9 @@ Citizen.CreateThread(
         while true do
             Citizen.Wait(8)
             local pos = GetEntityCoords(PlayerPedId(), true)
-            local sleep = true
             for k, v in pairs(Config.Locations) do
                 local distance = #(pos - v)
                 if distance < 1 then
-                    sleep = false
                     Draw3DText(v.x, v.y, v.z, "Press E to join the lottery")
                     if IsControlJustReleased(0, 51) and distance < 1 then
                         MenuV:OpenMenu(
