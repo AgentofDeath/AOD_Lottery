@@ -772,9 +772,6 @@ Citizen.CreateThread(
                             function()
                             end
                         )
-                        if sleep then
-                            Citizen.Wait(2000)
-                        end
                     end
                 end
             end
