@@ -12,8 +12,8 @@ AddEventHandler(
     function(result, result2, result3, result4, result5)
         local source = source
         local xPlayer = ESX.GetPlayerFromId(source)
-
-        if xPlayer.get("money") >= 500 then
+	local money = HasMoney(source)
+	  if money then
             local number = result.. "," ..result2.. "," ..result3.. "," ..result4.. "," ..result5
             MySQL.Async.insert(
                 "INSERT INTO lottery (numbers, steam) VALUES (@numbers, @steam)",
@@ -26,7 +26,7 @@ AddEventHandler(
                             account.addMoney(500)
                         end
                     )
-                    xPlayer.removeMoney(500)
+                    RemoveCash(source)
                     Notify(source, "Your numbers are " .. number)
                 end
             )
@@ -80,7 +80,8 @@ function drawlotto()
                         account.removeMoney(money)
                     end
                 )
-                xPlayer.addMoney(money)
+		AddCash(xPlayer,money) -- maybe works? would require testing i guess..
+                --xPlayer.addMoney(money)
                 Notify(-1, "Winner has been found. Winner is " .. firstname .. " " .. lastname)
                 MySQL.Async.execute("TRUNCATE TABLE `lottery`", {})
             else
