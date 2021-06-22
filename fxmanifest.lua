@@ -10,6 +10,7 @@ client_scripts {
 }
 server_scripts {
 '@mysql-async/lib/MySQL.lua',
+'functions.lua',
 'config.lua',
 'lotteryserver.lua'
 
