@@ -5,7 +5,7 @@
 
 HasMoney = function(source)
   local xPlayer = ESX.GetPlayerFromId(source)
-    if xPlayer.get("money") >= 500 --use me for esx 1.1
+    if xPlayer.get("money") >= 500 then --use me for esx 1.1
     --if xPlayer.getAccount("money") >= 500 then --use this option for versions not esx 1.1
       return true
     else
